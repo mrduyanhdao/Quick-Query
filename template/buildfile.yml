@@ -1,7 +1,7 @@
-    template: 'Template/abtest.sql'
-    input: 'Template/input.yml'
+    template: 'Template/ab_track.sql'
+    input: 'Template/input_track.yml'
     project_id: 'sendobia-prod'
     result: 'Result/TestResult.xlsx'
-    query: 'Result/Query.txt'
+    query: 'Result/Query_Track.sql'
 
     

@@ -1,5 +1,5 @@
     ab_test: ("firebase_exp_288","firebase_exp_289")
-    input_date: '2022-08-16'
+    input_date: '2022-08-10'
     output_date: '2022-08-22'
     variant_num: 3
     
@@ -20,8 +20,8 @@
     table3: {'sendo-data-platform.b401_ha_firebasebuyer.trf_b201_og_view_item_add_to_cart':'Click'} 
     in_check3: True
     in_condition3: { 'source_page_id' : '("og_home")'}
-    notin_check3: FALSE
-    notin_condition3:  {'icon_name' :'("Giá Tốt Mỗi Ngày","Giá tốt mỗi ngày","Cho Bạn")'}
+    notin_check3: True
+    notin_condition3:  {'source_block_id' :'("og_ingredients","og_ingredient")'}
 
 
     action4: False

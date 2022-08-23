@@ -3,13 +3,13 @@ With click as
     SELECT 
    
     'View' as EventName,
-     CASE WHEN (SELECT value.string_value from unnest (event_params) where key (algo) ) = 'algo' then 'Baseline'
+     CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome12' then 'Baseline'
      
-    when (SELECT value.string_value from unnest (event_params) where key in  ) = 'algo' then 'Experiment  ' 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome13' then 'Experiment 13 ' 
        
-    when (SELECT value.string_value from unnest (event_params) where key in  ) = 'algo' then 'Experiment  ' 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome14' then 'Experiment 14 ' 
        
-    when (SELECT value.string_value from unnest (event_params) where key in  ) = 'algo' then 'Experiment  ' 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome15' then 'Experiment 15 ' 
        
     else 'Not_AB'
     END AS ABType ,
@@ -34,13 +34,13 @@ With click as
    
     SELECT 
     'Click' as EventName,
-     CASE WHEN (SELECT value.string_value from unnest (event_params) where key (algo) ) = 'algo' then 'Baseline'
+     CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome12' then 'Baseline'
      
-    when (SELECT value.string_value from unnest (event_params) where key in  ) = 'algo' then 'Experiment  ' 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome13' then 'Experiment 13 ' 
        
-    when (SELECT value.string_value from unnest (event_params) where key in  ) = 'algo' then 'Experiment  ' 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome14' then 'Experiment 14 ' 
        
-    when (SELECT value.string_value from unnest (event_params) where key in  ) = 'algo' then 'Experiment  ' 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome15' then 'Experiment 15 ' 
        
     else 'Not_AB'
     END AS ABType ,
@@ -68,13 +68,13 @@ With click as
   
     SELECT 
     'Click' as EventName,
-     CASE WHEN (SELECT value.string_value from unnest (event_params) where key (algo) ) = 'algo' then 'Baseline'
+     CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome12' then 'Baseline'
      
-    when (SELECT value.string_value from unnest (event_params) where key in  ) = 'algo' then 'Experiment  ' 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome13' then 'Experiment 13 ' 
        
-    when (SELECT value.string_value from unnest (event_params) where key in  ) = 'algo' then 'Experiment  ' 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome14' then 'Experiment 14 ' 
        
-    when (SELECT value.string_value from unnest (event_params) where key in  ) = 'algo' then 'Experiment  ' 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome15' then 'Experiment 15 ' 
        
     else 'Not_AB'
     END AS ABType ,
@@ -106,13 +106,13 @@ With click as
   
     SELECT 
     'Purchase' as EventName,
-        CASE WHEN (SELECT value.string_value from unnest (event_params) where key (algo) ) = 'algo' then 'Baseline'
+        CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome12' then 'Baseline'
      
-    when (SELECT value.string_value from unnest (event_params) where key in  ) = 'algo' then 'Experiment  ' 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome13' then 'Experiment 13 ' 
        
-    when (SELECT value.string_value from unnest (event_params) where key in  ) = 'algo' then 'Experiment  ' 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome14' then 'Experiment 14 ' 
        
-    when (SELECT value.string_value from unnest (event_params) where key in  ) = 'algo' then 'Experiment  ' 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome15' then 'Experiment 15 ' 
        
     else 'Not_AB'
     END AS ABType ,

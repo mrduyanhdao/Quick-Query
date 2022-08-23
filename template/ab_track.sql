@@ -1,20 +1,22 @@
 With click as
 (  {% for tablename,alias in table1.items() %} 
     SELECT 
+   
     '{{ alias }}' as EventName,
-     CASE WHEN (SELECT value.string_value from unnest (event_params) where key (algo) ) = '0' then 'Baseline'
-    {% for variant in range(1, variant_num+1) %} 
-     when (SELECT value.string_value from unnest (user_properties) where key in {{ ab_test }} ) = '{{ variant }}' then 'Experiment {{variant}} ' 
+     CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome{{starting_variant}}' then 'Baseline'
+    {% for variant in range(starting_variant+1, starting_variant+variant_num+1) %} 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome{{variant}}' then 'Experiment {{variant}} ' 
       {% endfor %} 
+    else 'Not_AB'
     END AS ABType ,
      event_date, 
      platform,
-     user_pseudo_id
+    (SELECT value.string_value from unnest(event_params) where key ='track_id') user_pseudo_id
     FROM {{ tablename }}
     where 1 =1 
     and event_date >= '{{ input_date }}'
     and event_date <= '{{ output_date }}'
-    and (SELECT key from unnest(user_properties) where key in {{ ab_test }} ) is not null 
+   
      {% if in_check1 == True %}
     {% for key,value in in_condition1.items() %} 
       and (select value.string_value from unnest (event_params) where key = '{{key}}' ) in {{value}} 
@@ -32,14 +34,15 @@ With click as
   {% for tablename,alias in table2.items() %} 
     SELECT 
     '{{ alias }}' as EventName,
-     CASE WHEN (SELECT value.string_value from unnest (user_properties) where key in {{ ab_test }} ) = '0' then 'Baseline'
-    {% for variant in range(1, variant_num+1) %} 
-     when (SELECT value.string_value from unnest (user_properties) where key in {{ ab_test }} ) = '{{ variant }}' then 'Experiment {{variant}} ' 
+     CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome{{starting_variant}}' then 'Baseline'
+    {% for variant in range(starting_variant+1, starting_variant+variant_num+1) %} 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome{{variant}}' then 'Experiment {{variant}} ' 
       {% endfor %} 
+    else 'Not_AB'
     END AS ABType ,
     event_date, 
      platform,
-     user_pseudo_id
+    (SELECT value.string_value from unnest(event_params) where key ='track_id') user_pseudo_id
     FROM {{ tablename }}
     where 1 =1 
     and event_date >= '{{ input_date }}'
@@ -63,14 +66,15 @@ With click as
  {% for tablename,alias in table3.items() %} 
     SELECT 
     '{{ alias }}' as EventName,
-    CASE WHEN (SELECT value.string_value from unnest (user_properties) where key in {{ ab_test }} ) = '0' then 'Baseline'
-    {% for variant in range(1, variant_num+1) %} 
-     when (SELECT value.string_value from unnest (user_properties) where key in {{ ab_test }} ) = '{{ variant }}' then 'Experiment {{variant}} ' 
+     CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome{{starting_variant}}' then 'Baseline'
+    {% for variant in range(starting_variant+1, starting_variant+variant_num+1) %} 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome{{variant}}' then 'Experiment {{variant}} ' 
       {% endfor %} 
+    else 'Not_AB'
     END AS ABType ,
      event_date, 
      platform,
-     user_pseudo_id
+      (SELECT value.string_value from unnest(event_params) where key ='track_id') user_pseudo_id
     FROM {{ tablename }}
     where 1 =1 
     and event_date >= '{{ input_date }}'
@@ -94,14 +98,15 @@ With click as
  {% for tablename,alias in table4.items() %} 
     SELECT 
     '{{ alias }}' as EventName,
-     CASE WHEN (SELECT value.string_value from unnest (user_properties) where key in {{ ab_test }} ) = '0' then 'Baseline'
-    {% for variant in range(1, variant_num+1) %} 
-     when (SELECT value.string_value from unnest (user_properties) where key in {{ ab_test }} ) = '{{ variant }}' then 'Experiment {{variant}} ' 
+         CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome{{starting_variant}}' then 'Baseline'
+    {% for variant in range(starting_variant+1, starting_variant+variant_num+1) %} 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome{{variant}}' then 'Experiment {{variant}} ' 
       {% endfor %} 
+    else 'Not_AB'
     END AS ABType ,
      event_date, 
      platform,
-     user_pseudo_id
+     (SELECT value.string_value from unnest(event_params) where key ='track_id') user_pseudo_id
     FROM {{ tablename }}
     where 1 =1 
     and event_date >= '{{ input_date }}'
@@ -125,14 +130,15 @@ With click as
  {% for tablename,alias in table5.items() %} 
     SELECT 
     '{{ alias }}' as EventName,
-     CASE WHEN (SELECT value.string_value from unnest (user_properties) where key in {{ ab_test }} ) = '0' then 'Baseline'
-    {% for variant in range(1, variant_num+1) %} 
-     when (SELECT value.string_value from unnest (user_properties) where key in {{ ab_test }} ) = '{{ variant }}' then 'Experiment {{variant}} ' 
+        CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome{{starting_variant}}' then 'Baseline'
+    {% for variant in range(starting_variant+1, starting_variant+variant_num+1) %} 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome{{variant}}' then 'Experiment {{variant}} ' 
       {% endfor %} 
+    else 'Not_AB'
     END AS ABType ,
     event_date, 
      platform,
-     user_pseudo_id
+      (SELECT value.string_value from unnest(event_params) where key ='track_id') user_pseudo_id
     FROM {{ tablename }}
     where 1 =1 
     and event_date >= '{{ input_date }}'
