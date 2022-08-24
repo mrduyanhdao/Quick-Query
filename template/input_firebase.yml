@@ -20,7 +20,7 @@
     table3: {'sendo-data-platform.b401_ha_firebasebuyer.trf_b201_og_view_item_add_to_cart':'Click'} 
     in_check3: True
     in_condition3: { 'source_page_id' : '("og_home")'}
-    notin_check3: True
+    notin_check3: False
     notin_condition3:  {'source_block_id' :'("og_ingredients","og_ingredient")'}
 
 
@@ -31,7 +31,7 @@
     notin_check4: FALSE
     notin_condition4:  {'icon_name' :'("Giá Tốt Mỗi Ngày","Giá tốt mỗi ngày","Cho Bạn")'}
 
-    action5: True
+    action5: False
     table5 : {'sendo-data-platform.b401_ha_firebasebuyer.trf_b201_og_purchase':'Purchase'}
     in_check5: False
     in_condition5: {'page_id' : '("og_home")'}
