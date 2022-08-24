@@ -2,6 +2,7 @@ import os
 import io
 import yaml
 import pandas as pd
+import pandas-gbq
 from yaml.loader import SafeLoader
 from google.cloud import bigquery
 from jinja2 import Template
@@ -36,7 +37,7 @@ if __name__ == "__main__":
         buildload =yaml.load(buildfile, Loader=yaml.SafeLoader)
     object = filepath( buildload['template'], buildload['input'], buildload['project_id'], buildload['result'], buildload['query'] )
     object.print_query()
-    #object.run_query()
+    object.run_query()
     
 
         
