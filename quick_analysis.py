@@ -1,7 +1,7 @@
 import os
 import io
 import yaml
-import pandas as pd
+#import pandas as pd
 from yaml.loader import SafeLoader
 from google.cloud import bigquery
 from jinja2 import Template
@@ -30,6 +30,7 @@ class filepath:
         query = self.create_query()
         client = bigquery.Client(project= self.project_id)
         with client.query(query).to_dataframe() as df:
+            
             df.to_excel(self.result)
 if __name__ == "__main__":
     with open('Template/buildfile.yml', 'r') as buildfile:
