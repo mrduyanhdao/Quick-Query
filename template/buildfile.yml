@@ -1,7 +1,7 @@
-    template: 'Template/abtest.sql'
-    input: 'Template/input_firebase.yml'
+    template: 'template/abtest.sql'
+    input: 'template/input_firebase.yml'
     project_id: 'sendobia-prod'
-    result: 'Result/TestResult.xlsx'
-    query: 'Result/Query_Firebase.sql'
+    result: 'result/TestResult.xlsx'
+    query: 'result/Query_Firebase.sql'
 
     
