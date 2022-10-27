@@ -1,6 +1,6 @@
-    ab_test: ("firebase_exp_290","firebase_exp_291")
+    ab_test: ("firebase_exp_290","firebase_exp_291")    
     input_date: '2022-08-26'
-    output_date: '2022-09-06'
+    output_date: '2022-09-17'
     variant_num: 1
     
     table1 : {'sendo-data-platform.b401_ha_firebasebuyer.trf_b201_og_item_impression':'View'}

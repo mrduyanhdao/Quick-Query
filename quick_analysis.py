@@ -37,7 +37,6 @@ if __name__ == "__main__":
         buildload =yaml.load(buildfile, Loader=yaml.SafeLoader)
     object = filepath( buildload['template'], buildload['input'], buildload['project_id'], buildload['result'], buildload['query'] )
     object.print_query()
-    #object.run_query()
     
 
         

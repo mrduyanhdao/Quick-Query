@@ -13,7 +13,7 @@ With click as
     FROM sendo-data-platform.b401_ha_firebasebuyer.trf_b201_og_item_impression
     where 1 =1 
     and event_date >= '2022-08-26'
-    and event_date <= '2022-09-06'
+    and event_date <= '2022-09-17'
     and (SELECT key from unnest(user_properties) where key in ("firebase_exp_290","firebase_exp_291") ) is not null 
      
      
@@ -44,7 +44,7 @@ With click as
     FROM sendo-data-platform.b401_ha_firebasebuyer.trf_b201_og_adjust
     where 1 =1 
     and event_date >= '2022-08-26'
-    and event_date <= '2022-09-06'
+    and event_date <= '2022-09-17'
     and (SELECT key from unnest(user_properties) where key in ("firebase_exp_290","firebase_exp_291") ) is not null 
       
      
@@ -78,7 +78,7 @@ With click as
     FROM sendo-data-platform.b401_ha_firebasebuyer.trf_b201_og_view_item_add_to_cart
     where 1 =1 
     and event_date >= '2022-08-26'
-    and event_date <= '2022-09-06'
+    and event_date <= '2022-09-17'
     and (SELECT key from unnest(user_properties) where key in ("firebase_exp_290","firebase_exp_291") ) is not null 
     
        
