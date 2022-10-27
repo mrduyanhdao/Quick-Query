@@ -24,7 +24,8 @@ With click as
     {% endif %}
     {% if notin_check1 == True %}
       {% for key,value in notin_condition1.items() %} 
-      and (select value.string_value from unnest (event_params) where key = '{{key}}' ) not in {{value}}
+       and (LOWER((select value.string_value from unnest (event_params) where key = '{{key}}' )) not in {{value}}
+      OR (select value.string_value from unnest (event_params) where key = '{{key}}' ) is null)
       {% endfor %} 
     {% endif %}
     {% endfor %}
@@ -55,7 +56,8 @@ With click as
      {% endif %}
     {% if notin_check2 == True %}
       {% for key,value in notin_condition2.items() %} 
-      and (select value.string_value from unnest (event_params) where key = '{{key}}' ) not in {{value}}
+       and (LOWER((select value.string_value from unnest (event_params) where key = '{{key}}' )) not in {{value}}
+      OR (select value.string_value from unnest (event_params) where key = '{{key}}' ) is null)
       {% endfor %} 
     {% endif %}
   {% endfor %}
@@ -87,7 +89,8 @@ With click as
     {% endif %}
     {% if notin_check3 == True %}
       {% for key,value in notin_condition3.items() %} 
-      and (select value.string_value from unnest (event_params) where key = '{{key}}' ) not in {{value}}
+       and (LOWER((select value.string_value from unnest (event_params) where key = '{{key}}' )) not in {{value}}
+      OR (select value.string_value from unnest (event_params) where key = '{{key}}' ) is null)
       {% endfor %} 
     {% endif %}
   {% endfor %}
@@ -119,7 +122,8 @@ With click as
     {% endif %}
     {% if notin_check4 == True %}
       {% for key,value in notin_condition4.items() %} 
-      and (select value.string_value from unnest (event_params) where key = '{{key}}' ) not in {{value}}
+       and (LOWER((select value.string_value from unnest (event_params) where key = '{{key}}' )) not in {{value}}
+      OR (select value.string_value from unnest (event_params) where key = '{{key}}' ) is null)
       {% endfor %} 
     {% endif %}
   {% endfor %}
@@ -151,7 +155,8 @@ With click as
     {% endif %}
     {% if notin_check5 == True %}
       {% for key,value in notin_condition5.items() %} 
-      and (select value.string_value from unnest (event_params) where key = '{{key}}' ) not in {{value}}
+     and (LOWER((select value.string_value from unnest (event_params) where key = '{{key}}' )) not in {{value}}
+      OR (select value.string_value from unnest (event_params) where key = '{{key}}' ) is null)
       {% endfor %} 
     {% endif %}
   {% endfor %}

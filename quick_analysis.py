@@ -1,12 +1,7 @@
 import os
 import io
 import yaml
-<<<<<<< HEAD
 #import pandas as pd
-=======
-import pandas as pd
-import pandas-gbq
->>>>>>> 76c34c5066ca3e0c65801e710ed55004f0c158b5
 from yaml.loader import SafeLoader
 from google.cloud import bigquery
 from jinja2 import Template
@@ -28,7 +23,7 @@ class filepath:
             return  query_file.render(**input)
     def print_query(self):
         query = self.create_query()
-        with open(self.query_used, "w") as f:
+        with open(self.query_used, "w",encoding='utf-8') as f:
           print( query, file=f)
           
     def run_query(self):
@@ -42,7 +37,7 @@ if __name__ == "__main__":
         buildload =yaml.load(buildfile, Loader=yaml.SafeLoader)
     object = filepath( buildload['template'], buildload['input'], buildload['project_id'], buildload['result'], buildload['query'] )
     object.print_query()
-    object.run_query()
+    #object.run_query()
     
 
         

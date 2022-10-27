@@ -1,27 +1,27 @@
-    ab_test: ("firebase_exp_288","firebase_exp_289")
-    input_date: '2022-08-10'
-    output_date: '2022-08-22'
-    variant_num: 3
+    ab_test: ("firebase_exp_290","firebase_exp_291")
+    input_date: '2022-08-26'
+    output_date: '2022-09-06'
+    variant_num: 1
     
     table1 : {'sendo-data-platform.b401_ha_firebasebuyer.trf_b201_og_item_impression':'View'}
     in_check1: True
     in_condition1:  {'page_id' : '("og_home")'}
     notin_check1: TRUE
-    notin_condition1:  {'icon_name' :'("Giá Tốt Mỗi Ngày","Giá tốt mỗi ngày","Cho Bạn")'}
+    notin_condition1:  {'icon_name' :'("giá tốt mỗi ngày","bữa ăn mỗi ngày","cho bạn")'}
 
     action2: True
     table2 : {'sendo-data-platform.b401_ha_firebasebuyer.trf_b201_og_adjust':'Click'}
     in_check2: True
     in_condition2: {  'page_id' : '("og_home")','type'  :  '("add")'}
     notin_check2: True
-    notin_condition2:  {'icon_name' :'("Giá Tốt Mỗi Ngày","Giá tốt mỗi ngày","Cho Bạn")'}
+    notin_condition2:  {'icon_name' :'("giá tốt mỗi ngày","bữa ăn mỗi ngày","cho bạn")'}
 
     action3: True
     table3: {'sendo-data-platform.b401_ha_firebasebuyer.trf_b201_og_view_item_add_to_cart':'Click'} 
     in_check3: True
     in_condition3: { 'source_page_id' : '("og_home")'}
     notin_check3: True
-    notin_condition3:  {'source_block_id' :'("og_ingredients","og_ingredient")'}
+    notin_condition3:  {'source_icon' :'("giá tốt mỗi ngày","bữa ăn mỗi ngày","cho bạn")'}
 
 
     action4: False
@@ -29,7 +29,7 @@
     in_check4: True
     in_condition4: { 'page_id' : '("og_home")','type'  :  '("add")'}
     notin_check4: True
-    notin_condition4:  {'icon_name' :'("Giá Tốt Mỗi Ngày","Giá tốt mỗi ngày","Cho Bạn")'}
+    notin_condition4:  {'icon_name' :'("giá tốt mỗi ngày","bữa ăn mỗi ngày","Cho Bạn")'}
 
     action5: False
     table5 : {'sendo-data-platform.b401_ha_firebasebuyer.trf_b201_og_purchase':'Purchase'}

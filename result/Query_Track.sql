@@ -3,13 +3,9 @@ With click as
     SELECT 
    
     'View' as EventName,
-     CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome12' then 'Baseline'
+     CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome16' then 'Baseline'
      
-    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome13' then 'Experiment 13 ' 
-       
-    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome14' then 'Experiment 14 ' 
-       
-    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome15' then 'Experiment 15 ' 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome17' then 'Experiment 17 ' 
        
     else 'Not_AB'
     END AS ABType ,
@@ -18,14 +14,19 @@ With click as
     (SELECT value.string_value from unnest(event_params) where key ='track_id') user_pseudo_id
     FROM sendo-data-platform.b401_ha_firebasebuyer.trf_b201_og_item_impression
     where 1 =1 
-    and event_date >= '2022-08-10'
-    and event_date <= '2022-08-22'
+    and event_date >= '2022-08-26'
+    and event_date <= '2022-09-06'
    
      
      
       and (select value.string_value from unnest (event_params) where key = 'page_id' ) in ("og_home") 
      
     
+    
+       
+       and (LOWER((select value.string_value from unnest (event_params) where key = 'icon_name' )) not in ("giá tốt mỗi ngày","bữa ăn mỗi ngày","cho bạn")
+      OR (select value.string_value from unnest (event_params) where key = 'icon_name' ) is null)
+       
     
     
    
@@ -34,13 +35,9 @@ With click as
    
     SELECT 
     'Click' as EventName,
-     CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome12' then 'Baseline'
+     CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome16' then 'Baseline'
      
-    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome13' then 'Experiment 13 ' 
-       
-    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome14' then 'Experiment 14 ' 
-       
-    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome15' then 'Experiment 15 ' 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome17' then 'Experiment 17 ' 
        
     else 'Not_AB'
     END AS ABType ,
@@ -49,8 +46,8 @@ With click as
     (SELECT value.string_value from unnest(event_params) where key ='track_id') user_pseudo_id
     FROM sendo-data-platform.b401_ha_firebasebuyer.trf_b201_og_adjust
     where 1 =1 
-    and event_date >= '2022-08-10'
-    and event_date <= '2022-08-22'
+    and event_date >= '2022-08-26'
+    and event_date <= '2022-09-06'
     and (SELECT key from unnest(user_properties) where key in  ) is not null 
       
      
@@ -60,6 +57,11 @@ With click as
      
      
     
+       
+       and (LOWER((select value.string_value from unnest (event_params) where key = 'icon_name' )) not in ("giá tốt mỗi ngày","bữa ăn mỗi ngày","cho bạn")
+      OR (select value.string_value from unnest (event_params) where key = 'icon_name' ) is null)
+       
+    
   
 
 
@@ -68,13 +70,9 @@ With click as
   
     SELECT 
     'Click' as EventName,
-     CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome12' then 'Baseline'
+     CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome16' then 'Baseline'
      
-    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome13' then 'Experiment 13 ' 
-       
-    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome14' then 'Experiment 14 ' 
-       
-    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome15' then 'Experiment 15 ' 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome17' then 'Experiment 17 ' 
        
     else 'Not_AB'
     END AS ABType ,
@@ -83,8 +81,8 @@ With click as
       (SELECT value.string_value from unnest(event_params) where key ='track_id') user_pseudo_id
     FROM sendo-data-platform.b401_ha_firebasebuyer.trf_b201_og_view_item_add_to_cart
     where 1 =1 
-    and event_date >= '2022-08-10'
-    and event_date <= '2022-08-22'
+    and event_date >= '2022-08-26'
+    and event_date <= '2022-09-06'
     and (SELECT key from unnest(user_properties) where key in  ) is not null 
     
        
@@ -93,7 +91,8 @@ With click as
     
     
        
-      and (select value.string_value from unnest (event_params) where key = 'source_block_id' ) not in ("og_ingredients","og_ingredient")
+       and (LOWER((select value.string_value from unnest (event_params) where key = 'source_icon_name' )) not in ("giá tốt mỗi ngày","bữa ăn mỗi ngày","cho bạn")
+      OR (select value.string_value from unnest (event_params) where key = 'source_icon_name' ) is null)
        
     
   
@@ -106,13 +105,9 @@ With click as
   
     SELECT 
     'Purchase' as EventName,
-        CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome12' then 'Baseline'
+        CASE WHEN (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome16' then 'Baseline'
      
-    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome13' then 'Experiment 13 ' 
-       
-    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome14' then 'Experiment 14 ' 
-       
-    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome15' then 'Experiment 15 ' 
+    when (SELECT value.string_value from unnest (event_params) where key ='algo' ) = 'oghome17' then 'Experiment 17 ' 
        
     else 'Not_AB'
     END AS ABType ,
@@ -121,8 +116,8 @@ With click as
       (SELECT value.string_value from unnest(event_params) where key ='track_id') user_pseudo_id
     FROM sendo-data-platform.b401_ha_firebasebuyer.trf_b201_og_purchase
     where 1 =1 
-    and event_date >= '2022-08-10'
-    and event_date <= '2022-08-22'
+    and event_date >= '2022-08-26'
+    and event_date <= '2022-09-06'
     and (SELECT key from unnest(user_properties) where key in  ) is not null 
     
     
